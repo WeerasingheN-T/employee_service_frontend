@@ -8,32 +8,21 @@ class HeaderComponent extends Component {
         this.state = {}
     }
 
-    handleLogout = () => {
-        localStorage.removeItem('token'); 
-        this.props.history.push('/');
-    };
-    
-
     render() {
         return (
             <div>
                 <header>
-                    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                    <nav className="navbar navbar-expand-md navbar-dark bg-dark" style={{height: "70px" }}>
                         <div>
                             <a href="" className="navbar-brand">
-                                <img src='/images/empLog.png' alt="Logo" style={{ height: "50px" }} />
+                                <img src='/images/empLog.png' alt="Logo" style={{ height: "80px", width: "auto", display: "block", margin: "auto", padding: 0 }} />
                             </a>
                         </div>
-                        
-                        {localStorage.getItem('token') ? (
-                            <div className="collapse navbar-collapse">
-                            <ul className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <button className="btn btn-primary" onClick={this.handleLogout}>Log Out</button>
-                                </li>
-                            </ul>
-                        </div>
-                        ):(
+                        <div>
+                            <a href="" className="navbar-brand">
+                               <h3 style={{ fontFamily: "'Monoton', cursive", fontSize: "24px" }}>Employee Logs</h3>
+                            </a>
+                        </div>               
                         <div className="collapse navbar-collapse">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
@@ -43,9 +32,7 @@ class HeaderComponent extends Component {
                                     <Link className="nav-link" to="/signup">Sign Up</Link>
                                 </li>
                             </ul>
-                        </div>
-                        ) }
-                        
+                        </div>                       
                     </nav>
                 </header>
             </div>

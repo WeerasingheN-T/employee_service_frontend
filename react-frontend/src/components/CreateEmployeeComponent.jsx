@@ -67,9 +67,9 @@ class CreateEmployeeComponent extends Component {
 
     getTitle(){
         if(this.state.id === 'add'){
-            return <h3 className="text-center">Add Employee</h3>
+            return <h3 className="text-center mt-2">Add Employee</h3>
         }else{
-            return <h3 className="text-center">Update Employee</h3>
+            return <h3 className="text-center mt-2">Update Employee</h3>
         }
     }
     render() {
@@ -78,7 +78,7 @@ class CreateEmployeeComponent extends Component {
                 <br></br>
                    <div className = "container">
                         <div className = "row">
-                            <div className = "card col-md-6 offset-md-3 offset-md-3">
+                            <div className = "card col-md-6 offset-md-3 offset-md-3 form-element mt-3">
                                 {
                                     this.getTitle()
                                 }
@@ -86,17 +86,17 @@ class CreateEmployeeComponent extends Component {
                                     <form>
                                         <div className = "form-group">
                                             <label> First Name: </label>
-                                            <input placeholder="First Name" name="firstName" className="form-control" 
+                                            <input placeholder="First Name" name="firstName" className="form-control input-element" 
                                                 value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
                                         </div>
                                         <div className = "form-group">
                                             <label> Last Name: </label>
-                                            <input placeholder="Last Name" name="lastName" className="form-control" 
+                                            <input placeholder="Last Name" name="lastName" className="form-control input-element" 
                                                 value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
                                             <label> Email Id: </label>
-                                            <input placeholder="Email Address" name="emailId" className="form-control" 
+                                            <input placeholder="Email Address" name="emailId" className="form-control input-element" 
                                                 value={this.state.emailId} onChange={this.changeEmailHandler}/>
                                         </div>
 

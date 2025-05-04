@@ -12,8 +12,8 @@ class FooterComponent extends Component {
     render() {
         return (
             <div>
-                <footer className = "footer">
-                    <span className="text-muted">All Rights Reserved 2025 EmpService</span>
+                <footer className = "footer" style={{ position: '-moz-initial' }}>
+                    <span className="text-muted">All Rights Reserved 2025 EmployeeLogs</span>
                 </footer>
             </div>
         )

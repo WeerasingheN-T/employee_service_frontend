@@ -21,6 +21,11 @@ class SignUp extends Component {
         this.setState({ [name]: value });
     }
 
+    componentDidMount() {
+        const randomEmpId = 'EMP' + Math.floor(1000 + Math.random()*9000);
+        this.setState({empId: randomEmpId});
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.state.password !== this.state.confirmPassword) {
@@ -46,28 +51,30 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className="container mt-5">
-                <div className = "card col-md-6 offset-md-3 offset-md-3">
-                <h2 className="text-center">Sign Up</h2>
-                <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
+            <div className="container mt-5" style={{ marginBottom: '30px' }}>
+                <div className = "card col-md-6 offset-md-3 offset-md-3 form-element">
+                <h2 className="text-center mt-4"
+                   style={{ fontFamily: "'Codystar', sans-serif",fontWeight: 'bold' }}>Sign Up</h2>
+                <form onSubmit={this.handleSubmit} className="mt-3">
+                <div className="form-row row">
+                    <div className="form-group col-md-6">
                         <label htmlFor="empId">Employee ID</label>
                         <input
                             type="empId"
-                            className="form-control"
+                            className="form-control input-element"
                             id="empId"
                             name="empId"
                             value={this.state.empId}
-                            onChange={this.handleChange}
+                            readOnly
                             placeholder="Enter employee ID"
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-md-6">
                         <label htmlFor="email">Email address</label>
                         <input
                             type="email"
-                            className="form-control"
+                            className="form-control input-element"
                             id="email"
                             name="email"
                             value={this.state.email}
@@ -75,12 +82,14 @@ class SignUp extends Component {
                             placeholder="Enter email"
                             required
                         />
-                    </div>
-                    <div className="form-group">
+                    </div>    
+                </div>
+                <div className="form-row row">
+                    <div className="form-group col-md-6">
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
-                            className="form-control"
+                            className="form-control input-element"
                             id="password"
                             name="password"
                             value={this.state.password}
@@ -89,11 +98,11 @@ class SignUp extends Component {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-md-6">
                         <label htmlFor="confirmPassword">Confirm Password</label>
                         <input
                             type="password"
-                            className="form-control"
+                            className="form-control input-element"
                             id="confirmPassword"
                             name="confirmPassword"
                             value={this.state.confirmPassword}
@@ -102,14 +111,19 @@ class SignUp extends Component {
                             required
                         />
                     </div>
-                    <div className="text-center mt-3">
-                        <button type="submit" className="btn btn-primary">Sign Up</button>
+                </div> 
+                   <div className="text-center mt-5">
+                        <button type='submit'
+                           className='btn btn-primary'
+                           style={{ padding: '10px 20px', borderRadius: '30px', border: '1px solid #358de4' }}>
+                           <span style={{ flex: 1, textAlign: 'left', fontWeight: 'bold' }}>Sign Up</span>
+                        </button>
                     </div>
                 </form>
                 <p className="text-center mt-3">
-                    Already have an account? <Link to="/signin">Sign In</Link>
+                    Already have an account? <Link to="/">Sign In</Link>
                 </p>
-                </div>
+               </div>
             </div>
         );
     }

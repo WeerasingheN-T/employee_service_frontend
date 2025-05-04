@@ -47,6 +47,14 @@ body{
   }
 }
 
+.form-element {
+  border-radius: 30px !important;
+}
+
+.input-element {
+  border-radius: 30px !important;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
