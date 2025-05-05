@@ -34,7 +34,14 @@ class ListEmployeeComponent extends Component {
 
     componentDidMount(){
         EmployeeService.getEmployees().then((res) => {
-            this.setState({ employees: res.data});
+            if(Array.isArray(res.data)){
+                this.setState({ employees: res.data});
+            } else {
+                this.setState({ employees: [] });
+            } 
+        })
+        .catch((err)=> {
+            this.setState({ employees: [] });
         });
     }
 
@@ -43,6 +50,9 @@ class ListEmployeeComponent extends Component {
     }
 
     render() {
+        const { employees } = this.state;
+        const safeEmployees = Array.isArray(employees) ? employees : [];
+
         return (
             <div>
                  <h2 className="text-center">Employees List</h2>
@@ -63,8 +73,10 @@ class ListEmployeeComponent extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    this.state.employees.map(
-                                        employee => 
+                                    safeEmployees.length === 0? (
+                                        <p>No employees found or server error.</p>
+                                        ): ( safeEmployees.map(
+                                        employee => ( 
                                         <tr key = {employee.id}>
                                              <td> { employee.firstName} </td>   
                                              <td> {employee.lastName}</td>
@@ -75,8 +87,8 @@ class ListEmployeeComponent extends Component {
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(employee.id)} className="btn btn-info">View </button>
                                              </td>
                                         </tr>
-                                    )
-                                }
+                                        ))
+                                )}
                             </tbody>
                         </table>
 
