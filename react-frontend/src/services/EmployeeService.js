@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const EMPLOYEE_API_BASE_URL = "https://employeeservicebackend-copy-production.up.railway.app/api/v1/employees";
+const EMPLOYEE_API_BASE_URL = "https://8423-2402-d000-8104-1160-f56c-54b7-d4cd-94b6.ngrok-free.app/api/v1/employees";
 
 class EmployeeService {
 

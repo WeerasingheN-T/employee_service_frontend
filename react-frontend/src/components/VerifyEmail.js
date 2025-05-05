@@ -60,7 +60,7 @@ const VerifyEmail = () => {
     };
 
     return (
-        <div className="container mt-5 text-center">
+        <div className="container mt-5 text-center" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', width: '400px', marginTop: '40px' }}>
             <h2>Verify Email</h2>
             <p>We’ve sent a 6-digit code to your email address.</p>
             <p>Please enter the code below to verify your email.</p>
