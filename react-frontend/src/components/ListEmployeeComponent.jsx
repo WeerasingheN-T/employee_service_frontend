@@ -57,10 +57,11 @@ class ListEmployeeComponent extends Component {
             <div>
                  <h2 className="text-center">Employees List</h2>
                  <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button>
+                    <i onClick={this.addEmployee} className="bi bi-person-add" 
+                       style={{ color: 'blue', fontSize: '60px', cursor: 'pointer' }}></i>
                  </div>
                  <br></br>
-                 <div className = "row">
+                 <div className = "row" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                         <table className = "table table-striped table-bordered">
 
                             <thead>
@@ -84,7 +85,7 @@ class ListEmployeeComponent extends Component {
                                              <td>
                                                  <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update </button>
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger">Delete </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(employee.id)} className="btn btn-info">View </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(employee.id)} className="btn btn-success">View </button>
                                              </td>
                                         </tr>
                                         ))
